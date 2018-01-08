@@ -7,7 +7,7 @@
     <link href="index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <main role="main">
+    <main role="main" class="content">
       <h1>Search the 'Verse</h1>
       <form action="#" class="search-bar">
         <label for="word"></label>
@@ -18,7 +18,15 @@
       <section class="search-results" aria-live="assertive">
         <div class="content1"></div>
         <div class="content2"></div>
+        <div class="content3"></div>
       </section>
+
+      <div class="lightbox">
+        <iframe id="youtube" src="https://www.youtube.com/embed/${result.id.videoId}?" frameborder="0" allowfullscreen></iframe>
+        <div class="close-btn">x</div>
+      </div>
+
+      <div class="overlay"></div>
       
     </main>
     
