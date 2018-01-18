@@ -4,33 +4,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Star Wars Universe Search</title>
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Righteous');
+      </style>
   </head>
   <body>
     <main role="main" class="content">
-      <h1>Search the 'Verse</h1>
-      <form action="#" class="search-bar">
-        <label for="word"></label>
-        <input type="text" placeholder="Search the Universe Here" class="search-item">
-        <button type="submit">Submit</button>
-      </form>
       
-      <section class="search-results" aria-live="assertive">
-        <div class="content1"></div>
-        <div class="content2"></div>
-        <div class="content3"></div>
-      </section>
-
+      <section class="navigate">
+        
+        <!-- Buttons with slide search -->
+        <form class="source-and-search">
+          <button class="topic films">Films</button>
+          <div class="search-line hidden"><input type="text" placeholder="e.g. A New Hope" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+        <form class="source-and-search">
+          <button class="topic people">Characters</button>
+          <div class="search-line hidden"><input type="text" placeholder="e.g. Luke Skywalker" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+        <form class="source-and-search">
+          <button class="topic planets">Planets</button>
+          <div class="search-line hidden"><input type="text" placeholder="e.g. Tatooine" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+        <form class="source-and-search">
+          <button class="topic species">Species</button>
+          <div class="search-line hidden"><input type="text" placeholder="e.g. Wookie" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+        <form class="source-and-search">
+          <button class="topic starships">Starships</button>
+          <div class="search-line hidden"><input type="text" placeholder="e.g. Death Star" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+        <form class="source-and-search">
+          <button class="topic vehicles">Vehicles</button>
+          <div class="search-line hidden  "><input type="text" placeholder="e.g. AT-AT" class="search-item"><button class ="submit-input" type="submit">Submit</button></div>
+        </form>
+      
+      <!--
       <div class="lightbox">
         <iframe id="youtube" src="https://www.youtube.com/embed/${result.id.videoId}?" frameborder="0" allowfullscreen></iframe>
         <div class="close-btn">x</div>
-      </div>
+      </div> -->
 
-      <div class="overlay"></div>
+      <section class="overlay">
+        <div class="search-results" aria-live="assertive">
+          
+        </div>
+      </section>
       
     </main>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
