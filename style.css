@@ -1,10 +1,13 @@
 * {
     font-family: 'Righteous', cursive;
+    letter-spacing: 1px;
+    box-sizing: border-box;
 }
 
 body {
     background-image: url('https://wallpapercave.com/wp/ItmVuT6.jpg');
     height: 100%;
+    width: 100%;
     object-fit: cover;
     background-attachment: fixed;
     position: relative;
@@ -38,21 +41,42 @@ body * {
   opacity: 1;
 }
 
+main {
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
 .overlay {
-  position: fixed;
+  position: absolute;
   opacity: 0;
   top: -100%;
   left: 0;
-  width: 75%;
-  height: 90%;
+  width: 60%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.75);
-  transition: opacity .5s;
+  transition: opacity;
   z-index: 50;
+  border-radius: 20px;
 }
 
 .overlay.active {
-  top: 0;
+  top: -80px;
+  left: 50px;
+  right: 50px;
   opacity: 1;
+  margin-right: auto;
+  margin-left: auto;
+  height: 675px;
+  overflow: auto;
+  padding-top: 30px;
+}
+
+.overlay-content {
+    border-radius: 18px;
 }
 
 .close-btn {
@@ -69,8 +93,13 @@ body * {
   font-family: Sans-Serif;
 }
 
-.hidden {
-  display: none;
+.navigate {
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    margin: auto;
+    z-index: -1;
 }
 
 .source-and-search {
@@ -82,7 +111,7 @@ body * {
     color: rgb(255, 255, 88);
     background-color: rgba(255, 255, 255, 0.20);
     font-weight: 100;
-    width: 350px;
+    width: 100%;
     font-size: 20px;
     letter-spacing: 2px;
     padding: 8px;
@@ -90,13 +119,6 @@ body * {
     margin-bottom: 2px;
     box-shadow: none;
     cursor: pointer;
-}
-
-.navigate {
-    width: 350px;
-    position: relative;
-    display: inline-block;
-    margin-top: 150px;
 }
 
 .search-line {
@@ -120,12 +142,12 @@ body * {
     border-radius: 4px;
     cursor: pointer;
     height: 30px;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 1px;
 }
 
 input {
-    font-size: 16px;
+    font-size: 18px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 5px;
@@ -143,4 +165,31 @@ input[type=text] {
 
 input::placeholder {
     font-style: italic;
+}
+
+.instructions {
+    color: rgba(255, 255, 255, 0.781);
+    font-size: 20px;
+    margin-top: 145px;
+}
+
+.splash {
+    font-size: 80px;
+    color: white;
+    opacity: 1;
+    text-shadow: 0 0 2px rgb(255, 255, 88);
+    text-align: center;
+    margin-top: 12%;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.click-here {
+    opacity: 0.3;
+    font-size: 50px;
 }
