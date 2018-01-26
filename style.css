@@ -120,6 +120,7 @@ main {
     width: 350px;
     position: relative;
     display: inline-block;
+    margin: auto;
     margin-top: 15px;
 }
 
