@@ -121,7 +121,6 @@ main {
     position: relative;
     display: inline-block;
     margin-top: 15px;
-    margin: auto;   
 }
 
 .source-and-search {
@@ -143,13 +142,6 @@ main {
     box-shadow: none;
     cursor: pointer;
 }
-
-
-/* .error {
-    font-style: italic;
-    color: rgb(241, 15, 15);
-    box-sizing: 
-}*/
 
 .search-line {
     margin-bottom: 2px;

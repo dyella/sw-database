@@ -6,6 +6,7 @@ const speciesURL = "https://swapi.co/api/species/?search=";
 const starshipsURL = "https://swapi.co/api/starships/?search=";
 const vehiclesURL = "https://swapi.co/api/vehicles/?search=";
 const imgURL = "https://www.googleapis.com/customsearch/v1";
+
 const bingRUL ="https://api.cognitive.microsoft.com/bing/v7.0/images";
 
 function startOp() {
@@ -30,13 +31,6 @@ function getDataVideo(searchWord, callback) {
   $.getJSON(videoURL, settings, callback);
 }
 
-//Call Star Wars API
-function getSWData(url, query, callback) {
-    $.ajax({
-        method: "GET",
-        url: url + query
-    }).done(callback);
-};
 
 //Category button functions, toggle search, and close overlay
 (function() {
@@ -95,25 +89,32 @@ function getSWData(url, query, callback) {
 
 })();
 
-//Call Bing Search API
 
-//API KEY: "df75edab4b864cb99a9ee8062fa3e26d" AND "0ea26ea5c26843e1850e7ad2d5078179"
+//Call YouTube API
+function getDataVideo(searchWord, callback) {
+  const settings = {
+    part: 'snippet',
+    channelId: 'UCZGYJFUizSax-yElQaFDp5Q',
+    key: 'AIzaSyBWlaqRf5RJqSa4OqlSqdjdr_GaYUmpcuY',
+    q: `${searchWord}`,
+    maxResults: 5
+  }
+  $.getJSON(videoURL, settings, callback);
+}
 
-//Call Google Search API
-/*function getIMGData(searchWord, callback) {
-    const imgSettings = {
-        q: `${searchWord}`,
-        key: 'AIzaSyB4g8c1vSsEIfHvEMCeWuFzvCIQTfGJdPc',
-        maxResults: 1 
-    }
-    $.getJSON(imgURL, imgSettings, callback);
-};*/
-// API key "AIzaSyB4g8c1vSsEIfHvEMCeWuFzvCIQTfGJdPc"
+//Call Star Wars API
+function getSWData(url, query, callback) {
+    $.ajax({
+        method: "GET",
+        url: url + query
+    }).done(callback);
+};
 
 function handleFilmsData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
+
         <h1>Episode ${data.results[0].episode_id}</h1><br/>
         <h1>${data.results[0].title}</h1><br/>
         <span class="director">Directed by ${data.results[0].director}</span><br/>
