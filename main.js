@@ -3,21 +3,36 @@ const filmsURL = "https://swapi.co/api/films/?search=";
 const peopleURL = "https://swapi.co/api/people/?search=";
 const planetsURL = "https://swapi.co/api/planets/?search=";
 const speciesURL = "https://swapi.co/api/species/?search=";
-const starshipersURL = "https://swapi.co/api/starshipers/?search=";
+const starshipsURL = "https://swapi.co/api/starships/?search=";
 const vehiclesURL = "https://swapi.co/api/vehicles/?search=";
 const imgURL = "https://www.googleapis.com/customsearch/v1";
 
+const bingRUL ="https://api.cognitive.microsoft.com/bing/v7.0/images";
+
 function startOp() {
     $('.splash').on('click', function(event) {
-        $('.splash').fadeOut(500, function() {
+        $('.splash').fadeOut(600, function() {
             $('.splash').addClass('hidden');
-            $('.navigate').fadeIn(500);
+            $('.navigate').fadeIn(600);
             $('.navigate').removeClass('hidden');
         });
     });
 }
 
+//Call YouTube API
+function getDataVideo(searchWord, callback) {
+  const settings = {
+    part: 'snippet',
+    channelId: 'UCZGYJFUizSax-yElQaFDp5Q',
+    key: 'AIzaSyBWlaqRf5RJqSa4OqlSqdjdr_GaYUmpcuY',
+    q: `${searchWord}, star wars`,
+    maxResults: 5
+  }
+  $.getJSON(videoURL, settings, callback);
+}
 
+
+//Category button functions, toggle search, and close overlay
 (function() {
     $('.submit-input.films').on('click', function() {
         let word = $('.search-item.films').val();
@@ -56,13 +71,13 @@ function startOp() {
     });
 
     //Close overlay and empty html results
-        $('.overlay').on('click', function() {
-            $(this).removeClass('active');
+        $('.close-btn').on('click', function() {
+            $('.overlay').removeClass('active');
             $('.swapi-results').empty();
             $('.youtube-results').empty();
         });
 
-    //Toggle search bar under buttons
+    //Toggle search bars under buttons
         $('body').on('click', '.topic', function(event) {
             let slide = $(this).parent().find('.search-line');
             $('.search-line').not(slide).slideUp();
@@ -73,6 +88,7 @@ function startOp() {
     startOp();
 
 })();
+
 
 //Call YouTube API
 function getDataVideo(searchWord, callback) {
@@ -94,23 +110,15 @@ function getSWData(url, query, callback) {
     }).done(callback);
 };
 
-//Call Google Search API
-function getIMGData(url, query, callback) {
-    $.ajax({
-        method: "GET",
-        url: url + query
-    }).done(callback);
-};
-// API key "AIzaSyB4g8c1vSsEIfHvEMCeWuFzvCIQTfGJdPc"
-
 function handleFilmsData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
-        title: ${data.results[0].title}
-        episode: ${data.results[0].episode_id}
-        director: ${data.results[0].director}
-        opening: ${data.results[0].opening_crawl}
+
+        <h1>Episode ${data.results[0].episode_id}</h1><br/>
+        <h1>${data.results[0].title}</h1><br/>
+        <span class="director">Directed by ${data.results[0].director}</span><br/>
+        <span class="crawl">${data.results[0].opening_crawl}</span>
     `);
 }
 
@@ -154,7 +162,7 @@ function handleStarshipsData(data) {
         name: ${data.results[0].name}
         model: ${data.results[0].model}
         class: ${data.results[0].starship_class}
-        length: ${data.results[0].length}
+        length: ${data.results[0].length}m
         hyperdrive rating: ${data.results[0].hyperdrive_rating}
     `);
 }
@@ -175,7 +183,7 @@ function blankVideoResults(result) {
   return `
   <br>
     <div>
-    <iframe id="youtube" width="400" height="225" src="https://www.youtube.com/embed/${result.id.videoId}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <iframe id="youtube" width="800" height="450" src="https://www.youtube.com/embed/${result.id.videoId}?showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>`;
 }
 
