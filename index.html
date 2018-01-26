@@ -12,35 +12,35 @@
   <body>
     <main role="main" class="content">
       <div class="container">
-        <header class="splash"><p>Welcome to the<br/> Star Wars Universe<br/> Database.<br/><span class="click-here">(click to begin)</span></p></header>
+        <header class="splash hidden"><p>Welcome to the<br/> Star Wars Films Database.<br/><span class="click-here">(click to begin)</span></p></header>
 
-        <section class="navigate hidden">
+        <section class="navigate">
           <p class="instructions">Please begin by selecting a category, then submit a search term.</p>        
 
           <!-- Buttons with slide search -->
           <div class="source-and-search">
             <button class="topic">Films</button>
-            <div class="search-line hidden"><input type="text" placeholder="e.g. A New Hope" class="search-item films"><button class ="submit-input films" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. A New Hope" class="search-item films" oninvalid="this.setCustomValidity('Invalid search term')" oninput="setCustomValidity('')"><button class="submit-input films" type="submit">Submit</button></div>
           </div>
           <div class="source-and-search">
             <button class="topic">Characters</button>
-            <div class="search-line hidden"><input type="text" placeholder="e.g. Luke Skywalker" class="search-item people"><button class ="submit-input people" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. Luke Skywalker" class="search-item people"><button class="submit-input people" type="submit">Submit</button></div>
           </div>
           <div class="source-and-search">
             <button class="topic">Planets</button>
-            <div class="search-line hidden"><input type="text" placeholder="e.g. Tatooine" class="search-item planets"><button class ="submit-input planets" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. Tatooine" class="search-item planets"><button class="submit-input planets" type="submit">Submit</button></div>
           </div>
           <div class="source-and-search">
             <button class="topic">Species</button>
-            <div class="search-line hidden"><input type="text" placeholder="e.g. Wookie" class="search-item species"><button class ="submit-input species" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. Wookie" class="search-item species"><button class="submit-input species" type="submit">Submit</button></div>
           </div>
           <div class="source-and-search">
             <button class="topic">Starships</button>
-            <div class="search-line hidden"><input type="text" placeholder="e.g. Death Star" class="search-item starships"><button class ="submit-input starships" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. Death Star" class="search-item starships"><button class="submit-input starships" type="submit">Submit</button></div>
           </div>
           <div class="source-and-search">
             <button class="topic">Vehicles</button>
-            <div class="search-line hidden  "><input type="text" placeholder="e.g. AT-AT" class="search-item vehicles"><button class ="submit-input vehicles" type="submit">Submit</button></div>
+            <div class="search-line hidden"><input type="text" placeholder="e.g. AT-AT" class="search-item vehicles"><button class="submit-input vehicles" type="submit">Submit</button></div>
           </div>
         
         </section>
@@ -51,6 +51,7 @@
           <div class="swapi-results" id="sw-results" aria-live="assertive"></div>
           <div class="youtube-results" aria-live="assertive"></div>
         </div>
+        <div class="close-btn">x</div>
       </section>
           
     </main>
