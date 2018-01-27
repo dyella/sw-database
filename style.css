@@ -37,7 +37,6 @@ body * {
 }
 
 .active {
-  top: 50%;
   opacity: 1;
 }
 
@@ -202,10 +201,9 @@ input::placeholder {
     opacity: 1;
     text-shadow: 0 0 2px rgb(255, 255, 88);
     text-align: center;
-    margin-top: 15%;
+    margin-top: 13%;
     position: relative;
     cursor: pointer;
-    margin-bottom: 5px;
 }
 
 .hidden {
@@ -216,3 +214,4 @@ input::placeholder {
     opacity: 0.3;
     font-size: 50px;
 }
+

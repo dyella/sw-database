@@ -13,15 +13,16 @@
     <main role="main" class="content">
       <div class="container">
 
-        <header class="splash"><p>Welcome to the<br/> Star Wars Films Database.<br/><span class="click-here">(click to begin)</span></p></header>
+        <header class="splash hidden"><p>Welcome to the<br/> Star Wars Films Database.<br/><span class="click-here">(click to begin)</span></p></header>
 
-        <section class="navigate hidden">
+        <section class="navigate">
           <p class="instructions">Please begin by selecting a category, then submit a search term.</p>        
-
+          
           <!-- Buttons with slide search -->
           <div class="source-and-search">
             <button class="topic">Films</button>
             <div class="search-line hidden"><input type="text" placeholder="e.g. A New Hope" class="search-item films"><button class ="submit-input films" type="submit">Submit</button></div>
+            <span class="error"></span>
           </div>
           <div class="source-and-search">
             <button class="topic">Characters</button>
