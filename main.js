@@ -5,9 +5,6 @@ const planetsURL = "https://swapi.co/api/planets/?search=";
 const speciesURL = "https://swapi.co/api/species/?search=";
 const starshipsURL = "https://swapi.co/api/starships/?search=";
 const vehiclesURL = "https://swapi.co/api/vehicles/?search=";
-const imgURL = "https://www.googleapis.com/customsearch/v1";
-
-const bingRUL ="https://api.cognitive.microsoft.com/bing/v7.0/images";
 
 function startOp() {
     $('.splash').on('click', function(event) {
@@ -37,7 +34,6 @@ function getDataVideo(searchWord, callback) {
     $('.submit-input.films').on('click', function() {
         let word = $('.search-item.films').val();
         getSWData(filmsURL, word, handleFilmsData);
-        getDataVideo(word, displayVideoResults);
     });
     
     $('.submit-input.people').on('click', function() {
@@ -111,24 +107,35 @@ function getSWData(url, query, callback) {
 };
 
 function handleFilmsData(data) {
-    $('.overlay').addClass('active');
-    console.log(data);
-    $('.swapi-results').html(`
 
-        <h1>Episode ${data.results[0].episode_id}</h1><br/>
-        <h1>${data.results[0].title}</h1><br/>
+    if (data.count === 0) {
+        alert('test error');
+        console.log('test');
+    } else {
+        
+    let word = $('.search-item.films').val();
+    getDataVideo(word, displayVideoResults);
+    $('.overlay').addClass('active');
+    console.log('test2');
+    $('.swapi-results').html(`
+        <h1>Episode ${data.results[0].episode_id}</h1>
+        <h1 class="name">${data.results[0].title}</h1>
         <span class="director">Directed by ${data.results[0].director}</span><br/>
         <span class="crawl">${data.results[0].opening_crawl}</span>
     `);
+    }
 }
 
 function handlePeopleData(data) {
     $('.overlay').addClass('active');
     console.log(data);
+    let thisPlanet = data.results[0].homeworld
     $('.swapi-results').html(`
-        name: ${data.results[0].name}
+        <h1 class="name>name: ${data.results[0].name}</h1>
         birth year: ${data.results[0].birth_year}
-        home planet: ${data.results[0].homeworld}
+        height: ${data.results[0].height}cm
+        eye color: ${data.results[0].eye_color}
+        home planet: 
         species: ${data.results[0].species}
     `);
 }
@@ -137,7 +144,7 @@ function handlePlanetsData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
-        name: ${data.results[0].name}
+        <h1 class="name>name: ${data.results[0].name}</h1>
         climate: ${data.results[0].climate}
         population: ${data.results[0].population}
         terrain: ${data.results[0].terrain}
@@ -148,7 +155,7 @@ function handleSpeciesData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
-        name: ${data.results[0].name}
+        <h1 class="name>name: ${data.results[0].name}</h1>
         classification: ${data.results[0].classification}
         language: ${data.results[0].language}
         homeworld: ${data.results[0].homeworld}
@@ -159,7 +166,7 @@ function handleStarshipsData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
-        name: ${data.results[0].name}
+        <h1 class="name>name: ${data.results[0].name}</h1>
         model: ${data.results[0].model}
         class: ${data.results[0].starship_class}
         length: ${data.results[0].length}m
@@ -171,7 +178,7 @@ function handleVehiclesData(data) {
     $('.overlay').addClass('active');
     console.log(data);
     $('.swapi-results').html(`
-        name: ${data.results[0].name}
+        <h1 class="name>name: ${data.results[0].name}</h1>
         model: ${data.results[0].model}
         length: ${data.results[0].length}m
         passengers: ${data.results[0].passengers}
