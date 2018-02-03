@@ -217,6 +217,7 @@ function getSWData(url, query, callback) {
             $(this).addClass('hidden');
             $('.overlay').removeClass('active');
             $('.planets-results').empty();
+            $('.species-results').empty();
             $('.swapi-results').empty();
             $('.youtube-results').empty();
             slideError();
@@ -242,17 +243,16 @@ function handleFilmsData(data) {
       
     if (data.count === 0 || word === '') {
         $('.error.1').hide().html('No results found').slideDown(500);
-    } else {
-        getPlanets(data.results[0].planets);        
+    } else {        
         getDataVideo(word, displayVideoResults);
         $('.overlay').addClass('active');
         $('.close-btn').removeClass('hidden');
         $('.swapi-results').html(`
             <h1>Episode ${data.results[0].episode_id}</h1>
             <h1 class="name">${data.results[0].title}</h1>
-            <span class="director">Directed by ${data.results[0].director}</span><br/>
+            Directed by ${data.results[0].director}<br/>
             Release date: ${data.results[0].release_date}<br/>
-            <span class="crawl">"${data.results[0].opening_crawl}"</span>
+            "${data.results[0].opening_crawl}"
         `);
     }
 }
@@ -263,6 +263,8 @@ function handlePeopleData(data) {
         $('.error.2').hide().html('No results found').slideDown(500);
     } else {
         getDataVideo(word, displayVideoResults);
+        getSpecies(data.results[0].species);
+        getPlanet(data.results[0].homeworld);
         $('.overlay').addClass('active');
         $('.close-btn').removeClass('hidden');
         $('.swapi-results').html(`
@@ -270,21 +272,8 @@ function handlePeopleData(data) {
             Birth year: ${data.results[0].birth_year}<br/>
             Gender: ${data.results[0].gender}<br/>
             Height: ${data.results[0].height}cm<br/>
-            (species and home planet here)
-            `);
+        `);
     }
-}
-
-function getPlanets(planets) {
-    planets.forEach((planetsUrl) => {
-        $.ajax({
-            method: 'GET',
-            url: planetsUrl
-        }).done((data) => {
-            console.log(data);
-            $('.planets-results').append(`Home Planet: ${data.name} <br/>`);
-        })
-    })
 }
 
 function handlePlanetsData(data) {
@@ -314,6 +303,7 @@ function handleSpeciesData(data) {
         $('.error.4').hide().html('No results found').slideDown(500);
     } else {
         getDataVideo(word, displayVideoResults);
+        getPlanet(data.results[0].homeworld);
         $('.overlay').addClass('active');
         $('.close-btn').removeClass('hidden');
         console.log(data);
@@ -321,8 +311,7 @@ function handleSpeciesData(data) {
             <h1 class="name">${data.results[0].name}</h1>
             Classification: ${data.results[0].classification}<br/>
             Average height: ${data.results[0].average_height}cm<br/>
-            Language: ${data.results[0].language}<br/>
-            Home planet: ${data.results[0].homeworld}
+            Language: ${data.results[0].language}
         `);
     }
 }
@@ -365,6 +354,30 @@ function handleVehiclesData(data) {
             Passengers: ${data.results[0].passengers}
         `);
     }
+}
+
+//Chain API call for home planet
+function getPlanet(planet) {
+    $.ajax({
+        method: 'GET',
+        url: planet
+    }).done((data) => {
+        console.log(data);
+        $('.planets-results').append(`Home Planet: ${data.name}`);
+    })
+}
+
+//Chain API call for species
+function getSpecies(species) {
+    species.forEach((speciesUrl) => {
+        $.ajax({
+            method: 'GET',
+            url: speciesUrl
+        }).done((data) => {
+            console.log(data);
+            $('.species-results').append(`Species: ${data.name}`);
+        })
+    })
 }
 
 //Blank space code for results
