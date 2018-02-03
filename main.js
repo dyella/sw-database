@@ -32,8 +32,8 @@ const imgArray = [
     },
 
     {
-        imgPath: 'images/revenge_of_the_sith.jpg',
-        keywords: ['revenge', 'sith', '5'],
+        imgPath: 'images/empire_strikes_back.jpg',
+        keywords: ['strikes', 'empire', 'back', '5'],
         alt: 'star wars episode 5: revenge of the sith'
     },
 
@@ -62,7 +62,7 @@ const imgArray = [
     },
 
     {
-        imgPath: 'images/hutt.pg',
+        imgPath: 'images/hutt.jpg',
         keywords: 'hutt',
         alt: 'jabba the hutt'
     },
@@ -86,26 +86,53 @@ const imgArray = [
     },
 
     {
-        imgPath: 'images/m_falcon.jpg',
+        imgPath: 'images/m_falcon.png',
         keywords: ['millennium', 'falcon'],
         alt: 'the millennium falcon'
     },
 
     {
         imgPath: 'images/at-at.jpg',
-        keywords: 'at',
+        keywords: 'at-at',
         alt: 'at-at'
     },
 
     {
         imgPath: 'images/x-wing.jpg',
-        keywords: ['x', 'wing'],
+        keywords: ['x-wing', 'x', 'wing'],
         alt: 'x-wing'
+    },
+
+    {
+        imgPath: 'images/tie.jpeg',
+        keywords: 'tie',
+        alt: 'tie fighter'
     }
 ];
 
-let searchTerm = $('.search-item').val();
 let imgResults = [];
+
+function searchImagesByKeyword (keyword) {
+    imgResults = [];
+
+    imgArray.forEach((image) => {
+        if (image.keywords.indexOf(keyword) !== -1) {
+            imgResults.push(image.imgPath);
+        }
+    });
+
+    renderImageResults();
+}
+
+function renderImageResults() {
+    let imageResultsHtml = '';
+
+    imgResults.forEach((image) => {
+        imageResultsHtml += `<img src="${image}" />`
+    });
+
+    $('.image-results').html(imageResultsHtml);
+}
 
 //Close splash page
 function startOp() {
@@ -151,31 +178,37 @@ function getSWData(url, query, callback) {
 (function() {
     $('.submit-input.films').on('click', function() {
         let word = $('.search-item.films').val();
+        searchImagesByKeyword(word);
         getSWData(filmsURL, word, handleFilmsData);
     });
     
     $('.submit-input.people').on('click', function() {
         let word = $('.search-item.people').val();
+        searchImagesByKeyword(word);
         getSWData(peopleURL, word, handlePeopleData);
     });
 
     $('.submit-input.planets').on('click', function() {
         let word = $('.search-item.planets').val();
+        searchImagesByKeyword(word);
         getSWData(planetsURL, word, handlePlanetsData);
     });
 
     $('.submit-input.species').on('click', function() {
         let word = $('.search-item.species').val();
+        searchImagesByKeyword(word);
         getSWData(speciesURL, word, handleSpeciesData);
     });
 
     $('.submit-input.starships').on('click', function() {
         let word = $('.search-item.starships').val();
+        searchImagesByKeyword(word);
         getSWData(starshipsURL, word, handleStarshipsData);
     });
     
     $('.submit-input.vehicles').on('click', function() {
         let word = $('.search-item.vehicles').val();
+        searchImagesByKeyword(word);
         getSWData(vehiclesURL, word, handleVehiclesData);
     });
 
@@ -183,6 +216,7 @@ function getSWData(url, query, callback) {
         $('.close-btn').on('click', function() {
             $(this).addClass('hidden');
             $('.overlay').removeClass('active');
+            $('.planets-results').empty();
             $('.swapi-results').empty();
             $('.youtube-results').empty();
             slideError();
@@ -199,7 +233,6 @@ function getSWData(url, query, callback) {
 
     startOp();
     closeBtn();
-    //closeVid();
 
 })();
 
@@ -210,14 +243,15 @@ function handleFilmsData(data) {
     if (data.count === 0 || word === '') {
         $('.error.1').hide().html('No results found').slideDown(500);
     } else {
+        getPlanets(data.results[0].planets);        
         getDataVideo(word, displayVideoResults);
         $('.overlay').addClass('active');
         $('.close-btn').removeClass('hidden');
         $('.swapi-results').html(`
             <h1>Episode ${data.results[0].episode_id}</h1>
-            <img>
             <h1 class="name">${data.results[0].title}</h1>
             <span class="director">Directed by ${data.results[0].director}</span><br/>
+            Release date: ${data.results[0].release_date}<br/>
             <span class="crawl">"${data.results[0].opening_crawl}"</span>
         `);
     }
@@ -225,7 +259,6 @@ function handleFilmsData(data) {
 
 function handlePeopleData(data) {
     let word = $('.search-item.people').val();
-
     if (data.count === 0 || word === '') {
         $('.error.2').hide().html('No results found').slideDown(500);
     } else {
@@ -234,13 +267,24 @@ function handlePeopleData(data) {
         $('.close-btn').removeClass('hidden');
         $('.swapi-results').html(`
             <h1 class="name">${data.results[0].name}</h1>
-            birth year: ${data.results[0].birth_year}<br/>
-            height: ${data.results[0].height}cm<br/>
-            eye color: ${data.results[0].eye_color}<br/>
-            home planet: ${data.results[0].homeworld}<br/>
-            species: ${data.results[0].species}
-        `);
+            Birth year: ${data.results[0].birth_year}<br/>
+            Gender: ${data.results[0].gender}<br/>
+            Height: ${data.results[0].height}cm<br/>
+            (species and home planet here)
+            `);
     }
+}
+
+function getPlanets(planets) {
+    planets.forEach((planetsUrl) => {
+        $.ajax({
+            method: 'GET',
+            url: planetsUrl
+        }).done((data) => {
+            console.log(data);
+            $('.planets-results').append(`Home Planet: ${data.name} <br/>`);
+        })
+    })
 }
 
 function handlePlanetsData(data) {
@@ -255,9 +299,10 @@ function handlePlanetsData(data) {
         console.log(data);
         $('.swapi-results').html(`
             <h1 class="name">${data.results[0].name}</h1>
-            climate: ${data.results[0].climate}<br/>
-            population: ${data.results[0].population}<br/>
-            terrain: ${data.results[0].terrain}<br/>
+            Diameter: ${data.results[0].diameter}km<br/>
+            Climate: ${data.results[0].climate}<br/>
+            Population: ${data.results[0].population}<br/>
+            Terrain: ${data.results[0].terrain}<br/>
         `);
     }
 }
@@ -274,9 +319,10 @@ function handleSpeciesData(data) {
         console.log(data);
         $('.swapi-results').html(`
             <h1 class="name">${data.results[0].name}</h1>
-            classification: ${data.results[0].classification}<br/>
-            language: ${data.results[0].language}<br/>
-            homeworld: ${data.results[0].homeworld}
+            Classification: ${data.results[0].classification}<br/>
+            Average height: ${data.results[0].average_height}cm<br/>
+            Language: ${data.results[0].language}<br/>
+            Home planet: ${data.results[0].homeworld}
         `);
     }
 }
@@ -293,10 +339,10 @@ function handleStarshipsData(data) {
         console.log(data);
         $('.swapi-results').html(`
             <h1 class="name">${data.results[0].name}</h1>
-            model: ${data.results[0].model}<br/>
-            class: ${data.results[0].starship_class}<br/>
-            length: ${data.results[0].length}m<br/>
-            hyperdrive rating: ${data.results[0].hyperdrive_rating}
+            Model: ${data.results[0].model}<br/>
+            Class: ${data.results[0].starship_class}<br/>
+            Length: ${data.results[0].length}m<br/>
+            Hyperdrive rating: ${data.results[0].hyperdrive_rating}
         `);
     }
 }
@@ -313,9 +359,10 @@ function handleVehiclesData(data) {
         console.log(data);
         $('.swapi-results').html(`
             <h1 class="name">${data.results[0].name}</h1>
-            model: ${data.results[0].model}<br/>
-            length: ${data.results[0].length}m<br/>
-            passengers: ${data.results[0].passengers}
+            Model: ${data.results[0].model}<br/>
+            Length: ${data.results[0].length}m<br/>
+            Max crew: ${data.results[0].crew}<br/>
+            Passengers: ${data.results[0].passengers}
         `);
     }
 }
@@ -343,12 +390,11 @@ function displayVideoResults(data) {
 
 function showLightbox() {
     $('.lightbox').addClass('active'); 
-  //$('.overlay-video').addClass('active');
 }
 
 function closeLightbox() {
-    $('.lightbox').removeClass('active'); 
-  //$('.overlay-video').removeClass('active');
+    $('.lightbox').removeClass('active');
+    $('iframe').attr('src',''); 
 }
 
 function closeBtn () {
@@ -356,12 +402,6 @@ function closeBtn () {
         closeLightbox();
     });
 }
-/*
-function closeVid() {
-    $('.overlay-video').on('click', function() {
-      closeLightbox();
-    })
-  }*/
 
 /*
 const imagesArray = [
