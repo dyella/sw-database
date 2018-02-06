@@ -7,7 +7,6 @@
 body {
     background-image: url('https://wallpapercave.com/wp/ItmVuT6.jpg');
     height: 100%;
-    width: 100%;
     object-fit: cover;
     background-attachment: fixed;
     position: relative;
@@ -15,60 +14,52 @@ body {
     margin-right: auto;
     text-align: center;
     font-size: 18px;
+    top: -1px;
 }
 
 .active {
   opacity: 1;
 }
 
-main {
-    height: 100%;
-}
-
-.container {
-    position: relative;
-    height: 100%;
-}
-
 .overlay {
   position: fixed;
-  top: -100%;
+  display: block;
   opacity: 0;
-  left: 50px;
-  right: 50px;
+  top: -100%;
   margin-right: auto;
   margin-left: auto;
-  width: 60%;
   height: 85%;
   background-color: rgba(255, 255, 255, 0.9);  
   z-index: 5;
-  padding: 15px;
-  box-sizing: border-box;
   border-radius: 10px;
   border: rgb(170, 31, 31) 3px solid;
+  left: 10%;
+  right: 10%;
 }
 
 .overlay.active {
-  top: 60px;
+    top: 10%;   
   opacity: 1;
+
   overflow: hidden;
   padding: 30px 0 0;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 5px;
+    float: left;
 }
 
 ::-webkit-scrollbar-thumb {
     background: rgb(89, 89, 95); 
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(116, 116, 122); 
 }
 
-.close-btn {
+.close-btn, .close-video {
   position: absolute;
   top: -3px;
   right: -3px;
@@ -78,7 +69,7 @@ main {
   border: rgb(170, 31, 31) 3px solid;
   color: rgb(170, 31, 31);
   text-align: center;
-  padding-top: 2px;
+  padding-top: 3px;
   margin-bottom: 12px;
   font-size: 15px;
   font-style: bold;
@@ -88,26 +79,27 @@ main {
 }
 
 .overlay-content {
-    border-radius: 18px;
     overflow-y: scroll;
     width: 100%;
     height: 100%;
-    padding: 0 25px;
+    display: inline-block;
 }
 
 .navigate {
-    width: 350px;
+    width: 25%;
     position: relative;
     display: inline-block;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 10%;;
 }
 
 .source-and-search {
     margin-top: 2px;
     margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 2;
-    width: 350px;
+    width: 80%;
 }
 
 .topic {
@@ -130,7 +122,7 @@ main {
     border: rgb(255, 255, 88) solid;
     border-width: 2px;
     border-radius: 10px;
-    width: 350px;
+    width: 100%;
     padding-bottom: 12px;
     padding-top: 12px;
 }
@@ -173,7 +165,7 @@ input::placeholder {
 .instructions {
     color: rgba(255, 255, 255, 0.781);
     font-size: 20px;
-    margin-top: 145px;
+    margin-top: 15%;
 }
 
 .splash {
@@ -204,23 +196,27 @@ input::placeholder {
 .youtube-results {
     margin-top: 25px;
     width: 100%;
-    padding: 0 110px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto; 
+    padding-left: 10%;
 }
 
 .youtube-results::after {
     display: table;
     clear: both;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .thumbnail-container {
     padding-top: 8px;
     padding-bottom: 8px;
+    float: left;
+    display: block;
+    margin: 0 auto;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
-    float: left;
 }
 
 .thumbnail {
@@ -271,62 +267,59 @@ iframe {
     width: 100%;
 }
 
-.close-video {
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: white;
-    border: rgb(170, 31, 31) solid;
-    color: rgb(170, 31, 31);
-    text-align: center;
-    padding-top: 2px;
-    margin-bottom: 12px;
-    font-size: 15px;
-    font-style: bold;
-    cursor: pointer;
-    font-family: Sans-Serif;
-  }
+.image-results {
+    z-index: 5;
+max-height: 400px;
+max-width: 400px;
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+}
 
-  .image-results {
-      z-index: 5;
-    max-height: 400px;
-    max-width: 400px;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+img {
+    height: 100%;
+    width: 100%;
+-webkit-box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
+box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
+}
 
-  img {
-      height: 100%;
-      width: 100%;
-      margin-bottom: 15px;
-    -webkit-box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
-    box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
-  }
 
-  @media only screen and (max-width: 425px) {
+@media only screen and (min-width: 350px) and (max-width: 480px) {
+
+    .navigate {
+        width: 100%;
+    }
 
     .instructions {
         margin-top: 20%;
     }
 
+    .overlay {
+        width: 100%;
+    }
+
     .overlay.active {
         width: 100%;
-        left: 0;
-        right: 0;
-        padding-left: 25px;
         margin: 0;
+        left: 0;
     }
 
     .youtube-results {
         padding: 0;
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
+        float: none;    
+        display: block;
+        margin: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-top: 10px;
+    }
+
+    .thumbnail-container {
+        width: 100%;
+        display: block;
+        margin: auto;
+        float: left;
     }
 
     .lightbox {
@@ -334,56 +327,98 @@ iframe {
         height: 33.3%;
     }
 
-    .splash {
-        font-size: 300%;
+    header {
+        font-size: 100%;
     }
 
-    header {
-        font-size: 50%;
-        margin: 5px;
-        text-align: center;
-        position: absolute;
-        margin-top: 60px;
+    .image-results {
+        margin: auto;
+        width: 95%;
     }
   }
 
-@media only screen and (max-width: 1024px) {
-
-    .overlay.active {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        padding-left: 25px;
+@media only screen and (min-width: 481px) and (max-width: 732px) {
+    
+    .instructions {
+        margin: 0 5% 2% 5%;
+        text-align: center;
     }
 
-    .youtube-results {
-        padding: 0;
-        padding-left: 10%;
-        margin-left: auto;
-        margin-right: auto;
+    .navigate {
+        width: 70%;
+        margin-top: 0;
+    }
+
+    .overlay {
+        width: 100%;
+        left: 0;
     }
 
     .lightbox {
         width: 100%;
-        height: 33.3%;
+    }
+}
+
+@media only screen and (min-width: 736px) and (max-width: 960px) {
+
+    .navigate {
+        width: 70%;
+    }
+
+    .instructions {
+        margin-top: 5%;
+    }
+
+    .overlay.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .youtube-results {
+        margin-top: 25px;
+        width: 100%;
+        padding-top: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .youtube-results::after {
+        display: table;
+        clear: both;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .thumbnail-container {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        float: left;
+        display: block;
+        margin: auto;
+    }
+
+    .thumbnail {
+        width: 50%;
+    }
+
+    .lightbox {
+        width: 100%;
     }
 
     .splash {
         padding: 0;
+        margin-top: 5%;
     }
 
     header {
         padding: 0;
-        margin: 5px;
         text-align: center;
         position: absolute;
-        margin-top: 60px;
     }
     
     .swapi-results, .planets-results, .species-results {
-        font-size: 150%;
         line-height: 1.5;
     }
 }

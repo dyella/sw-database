@@ -118,6 +118,7 @@ function searchImagesByKeyword (keyword) {
     imgArray.forEach((image) => {
         if (image.keywords.indexOf(keyword) !== -1) {
             imgResults.push(image.imgPath);
+            $('.image-results').attr('alt', image.alt)
         }
     });
 
@@ -128,7 +129,7 @@ function renderImageResults() {
     let imageResultsHtml = '';
 
     imgResults.forEach((image) => {
-        imageResultsHtml += `<img src="${image}" />`
+        imageResultsHtml += `<img src="${image}"/>`
     });
 
     $('.image-results').html(imageResultsHtml);
@@ -415,33 +416,3 @@ function closeBtn () {
         closeLightbox();
     });
 }
-
-/*
-const imagesArray = [
-  {
-    imagePath: 'path/to/the/image.jpg',
-    keywords: ['luke', 'skywalker', 'jedi']
-  },
-
-  {
-    imagePath: 'path/to/the/image555.jpg',
-    keywords: ['luke', 'skywalker', 'jedi']
-  },
-
-  {
-    imagePath: 'path/to/the/image2.jpg',
-    keywords: ['rey', 'lastname', 'jedi']
-  }
-];
-
-let searchTerm = 'Luke';
-
-let imageResultsArray = [];
-
-imagesArray.forEach((image) => {
-    if (image.keywords.indexOf(searchTerm)) {
-      imageResultsArray.push(image.imagePath);
-    }
-});
-
-imageResultsArray = ['path/to/the/image.jpg', 'path/to/the/image555.jpg'];*/
