@@ -38,7 +38,7 @@ body {
 }
 
 .overlay.active {
-    top: 10%;   
+    top: 8%;   
   opacity: 1;
 
   overflow: hidden;
@@ -129,7 +129,7 @@ body {
 
 .navigate input {
     width: 65%;
-    margin-right: 18px;
+    margin-right: 15px;
     height: 30px;
 }
 
@@ -310,6 +310,17 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
         height: 33.3%;
     }
 
+    .search-line {
+        padding-left: 3%;
+        padding-right: 2%;
+    }
+
+    .splash, .click-here {
+        font-size: 50px;
+        padding-left: 1.04166666%;
+        padding-right: 1.04166666%;
+    }
+
     header {
         font-size: 100%;
     }
@@ -335,6 +346,12 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
     .overlay {
         width: 100%;
         left: 0;
+    }
+    
+    .splash, .click-here {
+        font-size: 50px;
+        padding-left: 1.04166666%;
+        padding-right: 1.04166666%;
     }
 
     .lightbox {
@@ -371,9 +388,10 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
         height: 33.3%;
     }
 
-    .splash {
-        padding: 0;
-        margin-top: 5%;
+    .splash, .click-here {
+        font-size: 60px;
+        padding-left: 1.04166666%;
+        padding-right: 1.04166666%;
     }
 
     header {
