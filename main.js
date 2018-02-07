@@ -21,25 +21,25 @@ const imgArray = [
 
     {
         imgPath: 'images/han_solo_1.jpg',
-        keywords: ['han', 'solo', 'Han Solo'],
+        keywords: ['han', 'solo', 'Han', 'Solo'],
         alt: 'han solo'
     },
 
     {
         imgPath: 'images/new_hope.jpg',
-        keywords: ['new', 'hope', '4', 'New Hope'],
+        keywords: ['new', 'hope', '4', 'New' 'Hope'],
         alt: 'star wars episode 4: a new hope'
     },
 
     {
         imgPath: 'images/empire_strikes_back.jpg',
-        keywords: ['strikes', 'empire', 'back', '5', 'Empire Strikes Back'],
+        keywords: ['strikes', 'empire', 'back', '5', 'Empire', 'Strikes', 'Back'],
         alt: 'star wars episode 5: revenge of the sith'
     },
 
     {
         imgPath: 'images/return_of_the_jedi.jpg',
-        keywords: ['return', 'jedi', '6', 'Return Jedi'],
+        keywords: ['return', 'jedi', '6', 'Return', 'Jedi'],
         alt: 'star wars episode 6: return of the jedi'
     },
 
@@ -81,7 +81,7 @@ const imgArray = [
 
     {
         imgPath: 'images/death_star.png',
-        keywords: ['death', 'death star', 'Death Star'],
+        keywords: ['death', 'death star', 'Death', 'Star'],
         alt: 'the death star'
     },
 
