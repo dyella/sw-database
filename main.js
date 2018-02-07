@@ -9,103 +9,103 @@ const vehiclesURL = "https://swapi.co/api/vehicles/?search=";
 const imgArray = [
     {
         imgPath: 'images/luke_skywalker_1.jpg',
-        keywords: ['luke', 'skywalker'],
+        keywords: ['luke', 'skywalker','Luke', 'Skywalker'],
         alt: 'luke skywalker'
     },
 
     {
         imgPath: 'images/leia_2.jpg',
-        keywords: ['leia', 'princess', 'organa'],
+        keywords: ['leia', 'princess', 'organa', 'Leia', 'Organa'],
         alt: 'princess leia'
     },
 
     {
         imgPath: 'images/han_solo_1.jpg',
-        keywords: ['han', 'solo'],
+        keywords: ['han', 'solo', 'Han Solo'],
         alt: 'han solo'
     },
 
     {
         imgPath: 'images/new_hope.jpg',
-        keywords: ['new', 'hope', '4'],
+        keywords: ['new', 'hope', '4', 'New Hope'],
         alt: 'star wars episode 4: a new hope'
     },
 
     {
         imgPath: 'images/empire_strikes_back.jpg',
-        keywords: ['strikes', 'empire', 'back', '5'],
+        keywords: ['strikes', 'empire', 'back', '5', 'Empire Strikes Back'],
         alt: 'star wars episode 5: revenge of the sith'
     },
 
     {
         imgPath: 'images/return_of_the_jedi.jpg',
-        keywords: ['return', 'jedi', '6'],
+        keywords: ['return', 'jedi', '6', 'Return Jedi'],
         alt: 'star wars episode 6: return of the jedi'
     },
 
     {
         imgPath: 'images/tatooine.jpg',
-        keywords: 'tatooine',
+        keywords: ['tatooine', 'Tatooine'],
         alt: 'tatooine'
     },
 
     {
         imgPath: 'images/hoth.jpg',
-        keywords: 'hoth',
+        keywords: ['hoth', 'Hoth'],
         alt: 'hoth'
     },
 
     {
         imgPath: 'images/naboo.jpg',
-        keywords: 'naboo',
+        keywords: ['naboo', 'Naboo'],
         alt: 'naboo'
     },
 
     {
         imgPath: 'images/hutt.jpg',
-        keywords: 'hutt',
+        keywords: ['hutt', 'Hutt'],
         alt: 'jabba the hutt'
     },
 
     {
         imgPath: 'images/rodian.jpg',
-        keywords: 'rodian',
+        keywords: ['rodian', 'Rodian'],
         alt: 'greedo'
     },
 
     {
         imgPath: 'images/wookie.jpg',
-        keywords: 'wookie',
+        keywords: ['wookie', 'Wookie'],
         alt: 'chewbacca'
     },
 
     {
         imgPath: 'images/death_star.png',
-        keywords: ['death', 'death star'],
+        keywords: ['death', 'death star', 'Death Star'],
         alt: 'the death star'
     },
 
     {
         imgPath: 'images/m_falcon.png',
-        keywords: ['millennium', 'falcon'],
+        keywords: ['millennium', 'falcon', 'Millennium', 'Falcon'],
         alt: 'the millennium falcon'
     },
 
     {
         imgPath: 'images/at-at.jpg',
-        keywords: 'at-at',
+        keywords: ['at-at', 'AT-AT', 'At-At'],
         alt: 'at-at'
     },
 
     {
         imgPath: 'images/x-wing.jpg',
-        keywords: ['x-wing', 'x', 'wing'],
+        keywords: ['x-wing', 'x', 'wing', 'X-Wing', 'X', 'Wing'],
         alt: 'x-wing'
     },
 
     {
         imgPath: 'images/tie.jpeg',
-        keywords: 'tie',
+        keywords: ['tie', 'Tie'],
         alt: 'tie fighter'
     }
 ];
