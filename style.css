@@ -287,6 +287,15 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
         width: 100%;
     }
 
+    .navigate input {
+        width: 65%;
+    }
+
+    input {
+        margin-right: 10px;
+        font-size: 95%;
+    }
+
     .instructions {
         margin-top: 20%;
     }
@@ -363,11 +372,14 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
 @media only screen and (min-width: 736px) and (max-width: 1024px) {
 
     .navigate {
-        width: 70%;
+        width: 75%;
+        margin-top: 3%;
     }
 
     .instructions {
-        margin-top: 5%;
+        width: 75%;
+        margin: 0 auto;
+        margin-bottom: 3%;
     }
 
     .overlay.active {
@@ -390,8 +402,6 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
 
     .splash, .click-here {
         font-size: 60px;
-        padding-left: 1.04166666%;
-        padding-right: 1.04166666%;
     }
 
     header {
