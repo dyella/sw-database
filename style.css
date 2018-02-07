@@ -194,12 +194,9 @@ input::placeholder {
 }
 
 .youtube-results {
-    margin-top: 25px;
-    width: 100%;
-    display: block;
-    margin-left: 0 auto;
-    margin-right: 0 auto; 
-    padding-left: 10%;
+    width: 90%;
+    display: inline-block;
+    margin: auto;
 }
 
 .youtube-results::after {
@@ -210,10 +207,9 @@ input::placeholder {
 }
 
 .thumbnail-container {
-    padding-top: 8px;
+    padding-top: 15px;
     padding-bottom: 8px;
-    float: left;
-    display: block;
+    display: inline-block;
     margin: 0 auto;
     padding-left: 1.04166666%;
     padding-right: 1.04166666%;
@@ -305,21 +301,8 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
         left: 0;
     }
 
-    .youtube-results {
-        padding: 0;
-        float: none;    
-        display: block;
-        margin: auto;
-        padding-left: 10%;
-        padding-right: 10%;
-        margin-top: 10px;
-    }
-
     .thumbnail-container {
         width: 100%;
-        display: block;
-        margin: auto;
-        float: left;
     }
 
     .lightbox {
@@ -356,10 +339,11 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
 
     .lightbox {
         width: 100%;
+        height: 33.3%;
     }
 }
 
-@media only screen and (min-width: 736px) and (max-width: 960px) {
+@media only screen and (min-width: 736px) and (max-width: 1024px) {
 
     .navigate {
         width: 70%;
@@ -374,29 +358,8 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
         left: 0;
     }
 
-    .youtube-results {
-        margin-top: 25px;
-        width: 100%;
-        padding-top: 0;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .youtube-results::after {
-        display: table;
-        clear: both;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .thumbnail-container {
         width: 100%;
-        padding-left: 5%;
-        padding-right: 5%;
-        float: left;
-        display: block;
-        margin: auto;
     }
 
     .thumbnail {
@@ -405,6 +368,7 @@ box-shadow: 0px 5px 20px 2px rgba(0,0,0,0.5);
 
     .lightbox {
         width: 100%;
+        height: 33.3%;
     }
 
     .splash {
