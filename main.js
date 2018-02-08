@@ -27,7 +27,7 @@ const imgArray = [
 
     {
         imgPath: 'images/new_hope.jpg',
-        keywords: ['new', 'hope', '4', 'New' 'Hope'],
+        keywords: ['new', 'hope', '4', 'New', 'Hope'],
         alt: 'star wars episode 4: a new hope'
     },
 
