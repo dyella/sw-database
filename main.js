@@ -81,7 +81,7 @@ const imgArray = [
 
     {
         imgPath: 'images/death_star.png',
-        keywords: ['death', 'death star', 'Death', 'Star'],
+        keywords: ['death', 'death star', 'Death', 'Star', 'moon'],
         alt: 'the death star'
     },
 
@@ -105,7 +105,7 @@ const imgArray = [
 
     {
         imgPath: 'images/tie.jpeg',
-        keywords: ['tie', 'Tie'],
+        keywords: ['tie', 'Tie', 'fighter'],
         alt: 'tie fighter'
     }
 ];
