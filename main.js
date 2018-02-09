@@ -1,3 +1,5 @@
+'use strict';
+
 const videoURL = "https://www.googleapis.com/youtube/v3/search";
 const filmsURL = "https://swapi.co/api/films/?search=";
 const peopleURL = "https://swapi.co/api/people/?search=";
